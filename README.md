@@ -21,12 +21,13 @@ A end-to-end demand forecasting project benchmarking three approaches — classi
 
 | Model | MAPE | MAE | RMSE |
 |---|---|---|---|
-| ARIMA(2,1,2) | 9.26% | $1,447 | $1,729 |
-| XGBoost | 6.84% | $1,138 | $1,277 |
-| **Prophet** | **3.99%** | **$652** | **$751** |
+| ARIMA(2,1,2) | 4.71% | $71,687 | $84,218 |
+| Prophet | 3.02% | $46,033 | $64,044 |
+| **XGBoost** | **2.61%** | **$39,864** | **$50,841** |
 
-**Prophet** achieved the best accuracy (3.99% MAPE), driven by its built-in US holiday effects and promotional markdown regressor.
-
+**XGBoost** achieved the best accuracy (2.61% MAPE), well below 
+the industry benchmark of 5–10%, driven by lag features, rolling 
+averages, and holiday indicators.
 ---
 
 ## Project Structure
