@@ -54,7 +54,17 @@ def generate_retail_sales(n_weeks=143, base=15000):
     })
     return df
 
-df = generate_retail_sales()
+# Load real Walmart data
+raw = pd.read_csv("train.csv")
+raw["Date"] = pd.to_datetime(raw["Date"])
+
+# Filter to one store + one department (e.g., Store 1, Dept 1)
+df = raw[(raw["Store"] == 1) & (raw["Dept"] == 1)].copy()
+df = df.rename(columns={"Date": "date", "Weekly_Sales": "weekly_sales"})
+df["is_markdown"] = df["IsHoliday"].astype(int)  # use holiday flag as promo proxy
+df = df[["date", "weekly_sales", "is_markdown", "Store", "Dept"]]
+df = df.rename(columns={"Store": "store", "Dept": "dept"})
+df = df.sort_values("date").reset_index(drop=True)
 print(f"Dataset shape: {df.shape}")
 print(df.head())
 
