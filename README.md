@@ -67,10 +67,9 @@ mlflow ui
 # Then open http://localhost:5000
 ```
 
-To use the real Walmart dataset:
-1. Download from https://www.kaggle.com/competitions/walmart-recruiting-store-sales-forecasting
-2. Replace the `generate_retail_sales()` call with `pd.read_csv("train.csv")`
-
+Dataset used:
+1. Download from https://www.kaggle.com/datasets/mikhail1681/walmart-sales
+2. File name: `Walmart_Sales.csv`
 ---
 
 ## Skills Demonstrated
